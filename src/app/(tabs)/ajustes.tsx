@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
+import {Text, View, StyleSheet, ScrollView, TouchableOpacity, Image, Platform} from "react-native";
 import {MaterialCommunityIcons, Ionicons} from '@expo/vector-icons';
 import React from "react";
 
@@ -86,9 +86,16 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        padding: 25,
-        paddingTop: 40,
-        backgroundColor: '#2978A0',
+        backgroundColor: COLORES.azul,
+        paddingHorizontal: 22,
+        paddingTop: Platform.OS === 'android' ? 45 : 20,
+        paddingBottom: 25,
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 3},
+        shadowOpacity: 0.15,
+        shadowRadius: 5,
+        elevation: 6,
+        zIndex: 10,
     },
 
     parteArriba: {
