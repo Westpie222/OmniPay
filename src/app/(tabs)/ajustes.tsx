@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Index() {
+export default function Ajustes() {
     return (
         <View style={styles.container}>
             <Text>Edit src/app/index.tsx to edit this screen.</Text>
