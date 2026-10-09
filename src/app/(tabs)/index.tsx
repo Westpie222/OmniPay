@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {Ionicons, AntDesign} from '@expo/vector-icons';
 
-const COLORS = {
+const COLORES = {
     primary: '#2978A0',
     secondary: '#315659',
     accent: '#BCAB79',
@@ -31,46 +31,45 @@ export default function InicioScreen() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <View style={styles.topRow}>
-                    <View style={styles.logoPill}>
+                <View style={styles.parteArriba}>
+                    <View style={styles.logo}>
                         <Image
                             source={require('../../../assets/Imagenes/logo.png')}
-
-                            style={styles.logoImage}
+                            style={styles.logoImagen}
                             resizeMode="contain"
                         />
                     </View>
 
-                    <View style={styles.headerIcons}>
-                        <Ionicons name="notifications-outline" size={28} color={COLORS.accent}/>
-                        <View style={styles.iconCircle}>
-                            <Text style={styles.iconCircleText}>icon</Text>
+                    <View style={styles.iconosHeader}>
+                        <Ionicons name="notifications" size={30} color={COLORES.accent}/>
+                        <View style={styles.usuarioIcono}>
+                            <Ionicons name="person" size={15} color={COLORES.background}/>
                         </View>
                     </View>
                 </View>
 
-                <Text style={styles.welcomeText}>Bienvenido</Text>
+                <Text style={styles.textoBienvenida}>Bienvenido</Text>
             </View>
 
             <ScrollView
-                contentContainerStyle={styles.content}
+                contentContainerStyle={styles.contenido}
                 showsVerticalScrollIndicator={false}
             >
-                <View style={styles.gridContainer}>
+                <View style={styles.gridContenedor}>
                     {SERVICIOS.map((item) => (
-                        <TouchableOpacity key={item.id} style={styles.serviceCard} activeOpacity={0.8}>
-                            <Text style={styles.serviceText}>{item.nombre}</Text>
+                        <TouchableOpacity key={item.id} style={styles.servicioCard} activeOpacity={0.8}>
+                            <Text style={styles.textoServicio}>{item.nombre}</Text>
                         </TouchableOpacity>
                     ))}
 
-                    <TouchableOpacity style={[styles.serviceCard, styles.addCard]} activeOpacity={0.8}>
-                        <AntDesign name="plus" size={42} color={COLORS.white}/>
+                    <TouchableOpacity style={[styles.servicioCard, styles.addCard]} activeOpacity={0.8}>
+                        <AntDesign name="plus" size={42} color={COLORES.white}/>
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.editButtonContainer}>
-                    <TouchableOpacity style={styles.editButton} activeOpacity={0.8}>
-                        <Text style={styles.editButtonText}>Editar</Text>
+                <View style={styles.botonEditContenedor}>
+                    <TouchableOpacity style={styles.botonEdit} activeOpacity={0.8}>
+                        <Text style={styles.botonEditTexto}>Editar</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -81,10 +80,10 @@ export default function InicioScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.background,
+        backgroundColor: COLORES.background,
     },
     header: {
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORES.primary,
         paddingHorizontal: 22,
         paddingTop: Platform.OS === 'android' ? 45 : 20,
         paddingBottom: 25,
@@ -95,60 +94,60 @@ const styles = StyleSheet.create({
         elevation: 6,
         zIndex: 10,
     },
-    topRow: {
+    parteArriba: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    logoPill: {
-        backgroundColor: COLORS.accent,
+    logo: {
+        backgroundColor: COLORES.accent,
         paddingHorizontal: 15,
         paddingVertical: 5,
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    logoImage: {
+    logoImagen: {
         width: 60,
         height: 30,
     },
-    headerIcons: {
+    iconosHeader: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 14,
     },
-    iconCircle: {
-        backgroundColor: COLORS.accent,
+    usuarioIcono: {
+        backgroundColor: COLORES.accent,
         paddingHorizontal: 14,
         paddingVertical: 10,
         borderRadius: 20,
     },
     iconCircleText: {
-        color: COLORS.white,
+        color: COLORES.white,
         fontSize: 13,
         fontWeight: '600',
     },
-    welcomeText: {
+    textoBienvenida: {
         fontSize: 34,
         fontWeight: '800',
-        color: COLORS.accent,
+        color: COLORES.accent,
         marginTop: 25,
         letterSpacing: 0.5,
     },
-    content: {
+    contenido: {
         padding: 22,
         paddingBottom: 40,
     },
-    gridContainer: {
+    gridContenedor: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         gap: 14,
     },
-    serviceCard: {
+    servicioCard: {
         width: '30%',
         aspectRatio: 0.8,
-        backgroundColor: COLORS.secondary, //
+        backgroundColor: COLORES.secondary, //
         borderRadius: 16,
         justifyContent: 'center',
         alignItems: 'center',
@@ -160,19 +159,19 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     addCard: {
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORES.primary,
     },
-    serviceText: {
-        color: COLORS.white,
+    textoServicio: {
+        color: COLORES.white,
         fontSize: 15,
         fontWeight: '500',
     },
-    editButtonContainer: {
+    botonEditContenedor: {
         alignItems: 'flex-end',
         marginTop: 20,
     },
-    editButton: {
-        backgroundColor: COLORS.secondary,
+    botonEdit: {
+        backgroundColor: COLORES.secondary,
         paddingHorizontal: 22,
         paddingVertical: 8,
         borderRadius: 18,
@@ -182,8 +181,8 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 3,
     },
-    editButtonText: {
-        color: COLORS.white,
+    botonEditTexto: {
+        color: COLORES.white,
         fontSize: 14,
         fontWeight: '600',
     },

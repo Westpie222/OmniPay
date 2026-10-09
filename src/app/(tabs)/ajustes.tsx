@@ -1,7 +1,8 @@
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import {Text, View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
+import {MaterialCommunityIcons, Ionicons} from '@expo/vector-icons';
+import React from "react";
 
-const colores = {
+const COLORES = {
     negro: "#253031",
     verdeOscuro: "#315659",
     azul: "#2978A0",
@@ -11,18 +12,24 @@ const colores = {
 
 export default function Ajustes() {
     return (
-         <View style={styles.container}>
+        <View style={styles.container}>
             <ScrollView>
                 <View style={styles.header}>
                     <View style={styles.parteArriba}>
                         <View style={styles.logo}>
                             <Image
-                                source={require("../../../assets/images/logo.png")}
+                                source={require("../../../assets/Imagenes/logo.png")}
                                 style={styles.logoImagen}
+                                resizeMode="contain"
                             />
                         </View>
 
-                        <Ionicons name="notifications" size={30} color={'#BCAB79'}/>
+                        <View style={styles.iconosHeader}>
+                            <Ionicons name="notifications" size={30} color={COLORES.arena}/>
+                            <View style={styles.usuarioIcono}>
+                                <Ionicons name="person" size={15} color={COLORES.cielo}/>
+                            </View>
+                        </View>
                     </View>
                     <Text style={styles.titulo}>Ajustes</Text>
                 </View>
@@ -91,9 +98,7 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        width: 70,
-        height: 70,
-        backgroundColor: '#BCAB79',
+        backgroundColor: COLORES.arena,
         paddingHorizontal: 15,
         paddingVertical: 5,
         borderRadius: 25,
@@ -104,27 +109,39 @@ const styles = StyleSheet.create({
     logoImagen: {
         width: 60,
         height: 30,
-        resizeMode: "contain",
+    },
+    iconosHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 14,
+    },
+    usuarioIcono: {
+        backgroundColor: COLORES.arena,
+        paddingHorizontal: 14,
+        paddingVertical: 10,
+        borderRadius: 20,
     },
 
     titulo: {
-        fontSize: 30,
-        fontWeight: "bold",
-        marginTop: 15,
-        color: '#BCAB79',
+        fontSize: 34,
+        fontWeight: "800",
+        marginTop: 25,
+        color: COLORES.arena,
+        letterSpacing: 0.5,
     },
 
     menu: {
         alignItems: "center",
         marginTop: 15,
-        borderColor:'#253031',
+        borderColor: '#253031',
     },
 
     boton: {
         width: "65%",
         height: 80,
-        borderWidth: 1,
+        borderWidth: 3,
         borderRadius: 8,
+        borderColor: COLORES.verdeOscuro,
         marginBottom: 30,
         flexDirection: "row",
         alignItems: "center",
