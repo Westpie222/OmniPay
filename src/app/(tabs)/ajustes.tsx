@@ -3,14 +3,14 @@ import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 export default function Ajustes() {
     return (
-        <ScrollView>
+        <ScrollView style={styles.body} contentContainerStyle={styles.bodyContent}>
             <TouchableOpacity style={styles.card}>  
                 <View style={styles.iconContainer}>
                     <Text>
                         ICON
                     </Text>
                 </View>
-                <View>
+                <View style ={styles.textContainer}>
                     <Text>
                         PERFIL
                     </Text>
@@ -79,12 +79,23 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         backgroundColor: "#c6e0ff",
     },
+    body: {
+        flex: 1,
+    },
+    bodyContent: {
+        paddingVertical: 25,
+        alignItems: 'center',
+    },
     card: {
         flexDirection: 'row',
         backgroundColor: '#8c8585',
         paddingVertical: 12,
         paddingHorizontal: 15,
         marginBottom: 20,
+        alignItems: 'center',
+    },
+    textContainer: {
+        flex: 1,
         alignItems: 'center',
     },
     iconContainer: {
